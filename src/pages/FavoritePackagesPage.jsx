@@ -22,7 +22,7 @@ const FavoritePackagesPage = () => {
   useEffect(() => {
     const fetchFavorites = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/admin/users/${userId}/favorites`, config);
+        const response = await axios.get(`https://b-path-way-to-pardesh.onrender.com/api/admin/users/${userId}/favorites`, config);
         setFavorites(response.data);
         setLoading(false);
       } catch (err) {
@@ -37,7 +37,7 @@ const FavoritePackagesPage = () => {
   useEffect(() => {
     const fetchAppliedPackages = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/admin/user/${userId}/bookings`, config);
+        const response = await axios.get(`https://b-path-way-to-pardesh.onrender.com/api/admin/user/${userId}/bookings`, config);
         setAppliedPackages(response.data);
         setLoading(false)
       } catch (err) {
@@ -51,7 +51,7 @@ const FavoritePackagesPage = () => {
 
   const handleRemoveFavorite = async (pkgId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/admin/users/${userId}/favorites/${pkgId}`, config);
+      await axios.delete(`https://b-path-way-to-pardesh.onrender.com/api/admin/users/${userId}/favorites/${pkgId}`, config);
       setFavorites(favorites.filter(fav => fav._id !== pkgId));
       setLoading(false)
     } catch (err) {
