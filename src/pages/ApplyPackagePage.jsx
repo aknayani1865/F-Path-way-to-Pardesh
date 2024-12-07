@@ -58,7 +58,7 @@ const ApplyPackagePage = () => {
   
       // Create booking and get Razorpay order ID
       const bookingResponse = await axios.post(
-        `http://localhost:5000/api/admin/packages/${pkg._id}/apply`,
+        `https://b-path-way-to-pardesh.onrender.com/api/admin/packages/${pkg._id}/apply`,
         {
           name: formFields[0].name,
           mobileNumber: formFields[0].mobile,
@@ -83,7 +83,7 @@ const ApplyPackagePage = () => {
           const loadingToast = toast.loading('Verification Payment...');
           try {
             // Verify the payment on backend
-            const verifyResponse = await axios.post('http://localhost:5000/api/admin/payment/verify', {
+            const verifyResponse = await axios.post('https://b-path-way-to-pardesh.onrender.com/api/admin/payment/verify', {
               razorpay_order_id: response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,
               razorpay_signature: response.razorpay_signature,
