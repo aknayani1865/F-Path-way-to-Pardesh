@@ -21,7 +21,7 @@ const AddSourceForm = () => {
             Authorization: `Bearer ${token}`,
           },
         };
-        const response = await axios.get('http://localhost:5000/api/admin/sources', config);
+        const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/sources', config);
         setSources(response.data);
       } catch (error) {
         toast.error(error.response ? error.response.data.message : 'Please try again.'); // Error toast
@@ -42,12 +42,12 @@ const AddSourceForm = () => {
           Authorization: `Bearer ${token}`,
         },
       };
-      await axios.post('http://localhost:5000/api/admin/sources', { name }, config);
+      await axios.post('https://b-path-way-to-pardesh.onrender.com/api/admin/sources', { name }, config);
       setMessage('Source added successfully!');
       setName('');
       toast.success('Source created successfully!');
       // Optionally refetch sources to update the list
-      const response = await axios.get('http://localhost:5000/api/admin/sources', config);
+      const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/sources', config);
       setSources(response.data);
     } catch (error) {
       setMessage('Failed to add source');
