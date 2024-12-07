@@ -23,7 +23,7 @@ const AddHotelForm = () => {
             Authorization: `Bearer ${token}`, // Send token in Authorization header
           },
         };
-        const response = await axios.get('http://localhost:5000/api/admin/places', config);
+        const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/places', config);
         setDestinations(response.data);
       } catch (error) {
         console.error('Error fetching destinations:', error);
@@ -38,7 +38,7 @@ const AddHotelForm = () => {
             Authorization: `Bearer ${token}`, // Send token in Authorization header
           },
         };
-        const response = await axios.get('http://localhost:5000/api/admin/hotels', config);
+        const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/hotels', config);
         setHotels(response.data);
       } catch (error) {
         console.error('Error fetching hotels:', error);
@@ -60,7 +60,7 @@ const AddHotelForm = () => {
           Authorization: `Bearer ${token}`, // Send token in Authorization header
         },
       };
-      await axios.post('http://localhost:5000/api/admin/hotels', {
+      await axios.post('https://b-path-way-to-pardesh.onrender.com/api/admin/hotels', {
         name,
         destination,
         pricePerNight,
@@ -71,7 +71,7 @@ const AddHotelForm = () => {
       setPricePerNight('');
       toast.success('Hotel created successfully!');
       // Optionally refetch hotels to update the list
-      const response = await axios.get('http://localhost:5000/api/admin/hotels', config);
+      const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/hotels', config);
       setHotels(response.data);
     } catch (error) {
       setMessage('Failed to add hotel');
