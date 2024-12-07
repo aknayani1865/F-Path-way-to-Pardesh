@@ -40,10 +40,10 @@ const AddPackage = () => {
           }
         };
         const [sourcesRes, destinationsRes, hotelsRes, transportsRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/admin/places', config),
-          axios.get('http://localhost:5000/api/admin/places', config),
-          axios.get('http://localhost:5000/api/admin/hotels', config),
-          axios.get('http://localhost:5000/api/admin/transports', config)
+          axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/places', config),
+          axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/places', config),
+          axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/hotels', config),
+          axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/transports', config)
         ]);
         setSourceId(sourcesRes.data);
         setDestinationId(destinationsRes.data);
@@ -114,7 +114,7 @@ const AddPackage = () => {
           Authorization: `Bearer ${token}` // Send token in Authorization header
         }
       };
-      await axios.post('http://localhost:5000/api/admin/packages', packageData, config);
+      await axios.post('https://b-path-way-to-pardesh.onrender.com/api/admin/packages', packageData, config);
       setPackageData({
         name: '',
         sourceId: '',
