@@ -46,7 +46,7 @@ const ProfilePage = () => {
           Authorization: `Bearer ${token}`
         }
       };
-      const response = await axios.put('http://localhost:5000/api/auth/profile', { name, userId }, config);
+      const response = await axios.put('https://b-path-way-to-pardesh.onrender.com/api/auth/profile', { name, userId }, config);
       console.log("response", response);
       setUserData(response.data.user);
       localStorage.setItem('user', JSON.stringify(response.data.user)); // Update localStorage
