@@ -26,7 +26,7 @@ const AddTransportForm = () => {
   useEffect(() => {
     const fetchDestinations = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/admin/places', config);
+        const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/places', config);
         setDestinations(response.data);
       } catch (error) {
         toast.error(error.response ? error.response.data.message : 'Please try again.'); // Error toast
@@ -35,7 +35,7 @@ const AddTransportForm = () => {
 
     const fetchSources = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/admin/places', config);
+        const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/places', config);
         setSources(response.data);
       } catch (error) {
         toast.error(error.response ? error.response.data.message : 'Please try again.'); // Error toast
@@ -44,7 +44,7 @@ const AddTransportForm = () => {
 
     const fetchTransports = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/admin/transports', config);
+        const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/transports', config);
         setTransports(response.data);
       } catch (error) {
         toast.error(error.response ? error.response.data.message : 'Please try again.'); // Error toast
@@ -61,7 +61,7 @@ const AddTransportForm = () => {
     const loadingToast = toast.loading('Creating transport...');
 
     try {
-      await axios.post('http://localhost:5000/api/admin/transports', {
+      await axios.post('https://b-path-way-to-pardesh.onrender.com/api/admin/transports', {
         type,
         from,
         to,
@@ -74,7 +74,7 @@ const AddTransportForm = () => {
       setPrice('');
       toast.success('Transport created successfully!');
       // Optionally refetch transports to update the list
-      const response = await axios.get('http://localhost:5000/api/admin/transports', config);
+      const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/transports', config);
       setTransports(response.data);
     } catch (error) {
       setMessage('Failed to add transport');
