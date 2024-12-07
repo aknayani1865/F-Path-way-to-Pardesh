@@ -28,7 +28,7 @@ const HotelTable = () => {
   // Fetch all hotels with populated destination name
   const fetchHotels = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/admin/hotels', config); // Adjust your API route as necessary
+      const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/hotels', config); // Adjust your API route as necessary
       setHotels(response.data);
       setLoading(false);
     } catch (error) {
@@ -41,7 +41,7 @@ const HotelTable = () => {
   // Fetch all destinations for the dropdown
   const fetchDestinations = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/admin/places', config);
+      const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/places', config);
       setDestinations(response.data);
       setLoading(false);
     } catch (error) {
@@ -56,7 +56,7 @@ const HotelTable = () => {
     const confirmDelete = window.confirm("Are you sure you want to delete this hotel?");
     if (confirmDelete) {
       try {
-        await axios.delete(`http://localhost:5000/api/admin/hotels/${id}`, config);
+        await axios.delete(`https://b-path-way-to-pardesh.onrender.com/api/admin/hotels/${id}`, config);
         fetchHotels(); // Refresh the list after deletion
         toast.success('Hotel deleted successfully!');
         setLoading(false);
@@ -74,7 +74,7 @@ const HotelTable = () => {
     const loadingToast = toast.loading('Editing Hotel...');
 
     try {
-      await axios.put(`http://localhost:5000/api/admin/hotels/${editId}`, editFormData, config);
+      await axios.put(`https://b-path-way-to-pardesh.onrender.com/api/admin/hotels/${editId}`, editFormData, config);
       setEditId(null); // Exit edit mode
       fetchHotels(); // Refresh the list
       toast.success('Hotel updated successfully!');
