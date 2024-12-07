@@ -60,7 +60,7 @@ const PackageTable = () => {
 
   const fetchPackages = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/admin/packages', config);
+      const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/packages', config);
       setIsLoading(false);
       setPackages(response.data);
     } catch (error) {
@@ -71,7 +71,7 @@ const PackageTable = () => {
 
   const fetchSources = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/admin/places', config);
+      const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/places', config);
       setSources(response.data);
       setIsLoading(false);
     } catch (error) {
@@ -82,7 +82,7 @@ const PackageTable = () => {
 
   const fetchDestinations = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/admin/places', config);
+      const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/places', config);
       setIsLoading(false);
       setDestinations(response.data);
     } catch (error) {
@@ -104,7 +104,7 @@ const PackageTable = () => {
 
   const fetchHotels = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/admin/hotels', config);
+      const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/hotels', config);
       setHotels(response.data);
       setIsLoading(false);
     } catch (error) {
@@ -115,7 +115,7 @@ const PackageTable = () => {
 
   const fetchTransports = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/admin/transports', config);
+      const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/transports', config);
       setTransports(response.data);
       setIsLoading(false);
     } catch (error) {
@@ -127,7 +127,7 @@ const PackageTable = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this package?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/admin/packages/${id}`, config);
+        await axios.delete(`https://b-path-way-to-pardesh.onrender.com/api/admin/packages/${id}`, config);
         fetchPackages(); // Refresh the package list
         setIsLoading(
           
@@ -177,7 +177,7 @@ const PackageTable = () => {
       updatedPackageData.pdf = newPdfBase64;
     }
     try {
-      await axios.put(`http://localhost:5000/api/admin/packages/${editId}`, updatedPackageData, config);
+      await axios.put(`https://b-path-way-to-pardesh.onrender.com/api/admin/packages/${editId}`, updatedPackageData, config);
       setEditId(null); // Exit edit mode
       fetchPackages(); // Refresh the package list
       setIsLoading(false);
