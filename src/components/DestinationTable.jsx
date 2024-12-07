@@ -26,7 +26,7 @@ const DestinationTable = () => {
   // Fetch all destinations
   const fetchDestinations = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/admin/places', config);
+      const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/places', config);
       setDestinations(response.data);
       setLoading(false);
     } catch (error) {
@@ -41,7 +41,7 @@ const DestinationTable = () => {
     const confirmDelete = window.confirm("Are you sure you want to delete this destination?");
     if (confirmDelete) {
       try {
-        await axios.delete(`http://localhost:5000/api/admin/places/${id}`, config);
+        await axios.delete(`https://b-path-way-to-pardesh.onrender.com/api/admin/places/${id}`, config);
         fetchDestinations(); // Refresh the list after deletion
         toast.success('Destination deleted successfully!');
         setLoading(false);
@@ -59,7 +59,7 @@ const DestinationTable = () => {
     const loadingToast = toast.loading('Updating place...');
 
     try {
-      await axios.put(`http://localhost:5000/api/admin/places/${editId}`, editFormData, config);
+      await axios.put(`https://b-path-way-to-pardesh.onrender.com/api/admin/places/${editId}`, editFormData, config);
       setEditId(null); // Exit edit mode
       fetchDestinations(); // Refresh the list
       toast.success('Place updated successfully!');
