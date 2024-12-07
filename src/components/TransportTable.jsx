@@ -30,7 +30,7 @@ const TransportTable = () => {
   // Fetch all transports with populated from and to fields
   const fetchTransports = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/admin/transports', config);
+      const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/transports', config);
       setTransports(response.data);
       setLoading(false);
     } catch (error) {
@@ -43,7 +43,7 @@ const TransportTable = () => {
   // Fetch all sources for dropdown
   const fetchSources = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/admin/places', config);
+      const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/places', config);
       setSources(response.data);
       setLoading(false);
     } catch (error) {
@@ -56,7 +56,7 @@ const TransportTable = () => {
   // Fetch all destinations for dropdown
   const fetchDestinations = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/admin/places', config);
+      const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/places', config);
       setDestinations(response.data);
       setLoading(false);
     } catch (error) {
@@ -70,7 +70,7 @@ const TransportTable = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this transport?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/admin/transports/${id}`, config);
+        await axios.delete(`https://b-path-way-to-pardesh.onrender.com/api/admin/transports/${id}`, config);
         fetchTransports(); // Refresh the transport list
         toast.success('Transport deleted successfully!');
         setLoading(false);
@@ -88,7 +88,7 @@ const TransportTable = () => {
     const loadingToast = toast.loading('Editing transport...');
 
     try {
-      await axios.put(`http://localhost:5000/api/admin/transports/${editId}`, editFormData, config);
+      await axios.put(`https://b-path-way-to-pardesh.onrender.com/api/admin/transports/${editId}`, editFormData, config);
       setEditId(null); // Exit edit mode
       fetchTransports(); // Refresh the transport list
       setLoading(false);
