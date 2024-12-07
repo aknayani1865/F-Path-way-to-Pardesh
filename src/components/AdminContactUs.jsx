@@ -24,7 +24,7 @@ const AdminContactUs = () => {
             Authorization: `Bearer ${token}` // Send token in Authorization header
           }
         };
-        const response = await axios.get('http://localhost:5000/api/admin/contact', config);
+        const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/contact', config);
         setContacts(response.data);
         setSloading(false);
       } catch (error) {
@@ -45,7 +45,7 @@ const AdminContactUs = () => {
           Authorization: `Bearer ${token}` // Send token in Authorization header
         }
       };
-      await axios.delete(`http://localhost:5000/api/admin/contact/${id}`, config);
+      await axios.delete(`https://b-path-way-to-pardesh.onrender.com/api/admin/contact/${id}`, config);
       setContacts(contacts.filter(contact => contact._id !== id));
       toast.success('Contact message deleted successfully');
       setSloading(false);
@@ -92,7 +92,7 @@ const AdminContactUs = () => {
           Authorization: `Bearer ${token}` // Send token in Authorization header
         }
       };
-      await axios.post(`http://localhost:5000/api/admin/contact/${selectedContact._id}/reply`, {
+      await axios.post(`https://b-path-way-to-pardesh.onrender.com/api/admin/contact/${selectedContact._id}/reply`, {
         subject: replySubject,
         message: replyMessage
       }, config);
