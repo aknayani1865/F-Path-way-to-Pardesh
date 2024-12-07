@@ -6,6 +6,7 @@ import NavbarUser from '../components/NavbarUser';
 import toast from 'react-hot-toast';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import './ApplyPackagePage.css';  // Importing CSS file
 
 const ApplyPackagePage = () => {
   const token = localStorage.getItem('token');  // Retrieve token from localStorage
@@ -120,22 +121,22 @@ const ApplyPackagePage = () => {
   return (
     <>
       <NavbarUser></NavbarUser>
-      <div style={styles.container}>
-      <div style={styles.packageDetails}>
-        <h2 style={styles.head}>Package Details</h2>
+      <div className='akcontainer'>
+      <div className='akpackageDetails'>
+        <h2 className='akhead'>Package Details</h2>
         {pkg.images && (
             <Carousel showThumbs={false} dynamicHeight>
               {pkg.images.map((image, index) => (
                 <div key={index}>
-                  <img src={image.url} alt={`${pkg.name || 'Unknown'} ${index + 1}`} style={styles.image} />
+                  <img src={image.url} alt={`${pkg.name || 'Unknown'} ${index + 1}`} className='akimage' />
                 </div>
               ))}
             </Carousel>
           )}
-        <h3 style={styles.head}>{pkg.name || 'Unknown'}</h3>
+        <h3 className='akhead'>{pkg.name || 'Unknown'}</h3>
         {pkg.description && (
-          <p style={styles.description}>
-          <strong style={styles.descriptionStrong}>Description: </strong>
+          <p className='akdescription'>
+          <strong className='akdescriptionStrong'>Description: </strong>
           {pkg.description || 'Unknown'}
           </p>
         )}
@@ -147,23 +148,23 @@ const ApplyPackagePage = () => {
         
         <p><strong>InstructionPDF:</strong></p>
         {pkg.pdf && (
-            <button onClick={() => window.open(pkg.pdf.url, '_blank')} style={styles.button}>
+            <button onClick={() => window.open(pkg.pdf.url, '_blank')} className='akbutton'>
               View PDF
             </button>
           )}
       </div>
-      <div style={styles.formContainer}>
-        <h2 style={styles.head}>Apply for Package</h2>
-        <div style={styles.buttonContainer}>
+      <div className='akformContainer'>
+        <h2 className='akhead'>Apply for Package</h2>
+        <div className='akbuttonContainer'>
           {[1, 2, 3, 4, 5, 6].map((num) => (
-            <button key={num} onClick={() => handlePeopleChange(num)} style={styles.button}>
+            <button key={num} onClick={() => handlePeopleChange(num)} className='akbutton'>
               {num}
             </button>
           ))}
         </div>
-        <form onSubmit={handleSubmit} style={styles.form}>
+        <form onSubmit={handleSubmit} className='akform'>
           {formFields.map((field, index) => (
-            <div key={index} style={styles.field}>
+            <div key={index} className='akfield'>
               <input
                 type="text"
                 placeholder="Name"
@@ -174,7 +175,7 @@ const ApplyPackagePage = () => {
                   setFormFields(newFields);
                 }}
                 required
-                style={{ backgroundColor: '#f4f4f4', color: '#333', border: '1px solid #ccc', padding: '8px', borderRadius: '4px' }} // Customize styles here
+                style={{ backgroundColor: '#f4f4f4', color: '#333', border: '1px solid #ccc', padding: '8px', borderRadius: '4px' }}
               />
               {field.mobile !== undefined && (
                 <input
@@ -187,7 +188,7 @@ const ApplyPackagePage = () => {
                     setFormFields(newFields);
                   }}
                   required
-                  style={{ backgroundColor: '#f4f4f4', color: '#333', border: '1px solid #ccc', padding: '8px', borderRadius: '4px' }} // Customize styles here
+                  style={{ backgroundColor: '#f4f4f4', color: '#333', border: '1px solid #ccc', padding: '8px', borderRadius: '4px' }}
 
                 />
               )}
@@ -201,7 +202,7 @@ const ApplyPackagePage = () => {
                   setFormFields(newFields);
                 }}
                 required
-                style={{ backgroundColor: '#f4f4f4', color: '#333', border: '1px solid #ccc', padding: '8px', borderRadius: '4px' }} // Customize styles here
+                style={{ backgroundColor: '#f4f4f4', color: '#333', border: '1px solid #ccc', padding: '8px', borderRadius: '4px' }} 
 
               />
             </div>
@@ -212,10 +213,10 @@ const ApplyPackagePage = () => {
             }
             return total + pkg.totalPrice;
           }, 0)}</p>
-          <button type="submit" style={styles.button} disabled={loading}>
+          <button type="submit" className='akbutton' disabled={loading}>
             {loading ? 'Submitting...' : 'Submit'}
           </button>
-          {error && <div style={styles.error}>{error}</div>}
+          {error && <div className='akerror'>{error}</div>}
         </form>
       </div>
     </div>
@@ -224,77 +225,7 @@ const ApplyPackagePage = () => {
   );
 };
 
-const styles = {
-  head: {
-    fontSize:"24px",
-    fontWeight : "bold",
-    marginBottom:"15px",
-    marginTop:"10px"
-  },
-  container: {
-    display: 'flex',
-    flexDirection: 'row',
-    padding: '20px',
-  },
-  packageDetails: {
-    flex: 1,
-    marginRight: '20px',
-  },
- image: {
-    width: '100%', // Ensure it scales with the container
-    maxWidth: '500px', // Set a max-width for medium size
-    height: 'auto',
-    objectFit: 'cover',
-    borderRadius: '8px',
-    marginBottom: '10px',
-  },
-  formContainer: {
-    flex: 1,
-  },
-  buttonContainer: {
-    display: 'flex',
-    gap: '10px',
-    marginBottom: '20px',
-  },
- description: {
-    fontSize: '16px',
-    color: '#555',
-    lineHeight: '1.6',
-    marginTop: '10px',
-    backgroundColor: '#f9f9f9',
-    padding: '15px',
-    borderRadius: '8px',
-    boxShadow: 'inset 0 2px 4px rgba(0, 0, 0, 0.1)',
-    transition: 'background-color 0.3s ease, color 0.3s ease',
-  },
-  descriptionStrong: {
-    fontWeight: 'bold',
-    color: '#333',
-  },
-  button: {
-    padding: '10px 20px',
-    fontSize: '16px',
-    cursor: 'pointer',
-    border: 'none',
-    borderRadius: '5px',
-    backgroundColor: '#007BFF',
-    color: 'white',
-    transition: 'background-color 0.3s',
-  },
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '10px',
-  },
-  field: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '5px',
-  },
-  error: {
-    color: 'red',
-    marginTop: '10px',
-  },
-};
+
+
 
 export default ApplyPackagePage;
