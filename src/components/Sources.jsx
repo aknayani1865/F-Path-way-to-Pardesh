@@ -24,7 +24,7 @@ const SourceTable = () => {
   // Fetch all sources
   const fetchSources = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/admin/sources', config); // API route for sources
+      const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/sources', config); // API route for sources
       setSources(response.data);
     } catch (error) {
       console.error('Error fetching sources:', error);
@@ -37,7 +37,7 @@ const SourceTable = () => {
     const confirmDelete = window.confirm("Are you sure you want to delete this source?");
     if (confirmDelete) {
       try {
-        await axios.delete(`http://localhost:5000/api/admin/sources/${id}`, config);
+        await axios.delete(`https://b-path-way-to-pardesh.onrender.com/api/admin/sources/${id}`, config);
         fetchSources(); // Refresh the list after deletion
         toast.success('Source deleted successfully!');
       } catch (error) {
@@ -53,7 +53,7 @@ const SourceTable = () => {
     const loadingToast = toast.loading('Updating source...');
 
     try {
-      await axios.put(`http://localhost:5000/api/admin/sources/${editId}`, editFormData, config);
+      await axios.put(`https://b-path-way-to-pardesh.onrender.com/api/admin/sources/${editId}`, editFormData, config);
       setEditId(null); // Exit edit mode
       fetchSources(); // Refresh the list
       toast.success('Source updated successfully!');
