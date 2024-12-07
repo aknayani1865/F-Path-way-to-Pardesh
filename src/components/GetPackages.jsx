@@ -19,7 +19,7 @@ const PackageDataFetcher = () => {
     setIsLoading(true);
     setError('');
     try {
-      const response = await axios.get('http://localhost:5000/api/admin/packages', config); // Adjust the endpoint as needed
+      const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/packages', config); // Adjust the endpoint as needed
       setPackages(response.data);
     } catch (error) {
       setError('Failed to fetch packages');
