@@ -22,7 +22,7 @@ const AddDestinationForm = () => {
             Authorization: `Bearer ${token}`,
           },
         };
-        const response = await axios.get('http://localhost:5000/api/admin/places', config);
+        const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/places', config);
         setDestinations(response.data);
       } catch (error) {
         console.error('Failed to fetch places:', error);
@@ -43,13 +43,13 @@ const AddDestinationForm = () => {
           Authorization: `Bearer ${token}`,
         },
       };
-      await axios.post('http://localhost:5000/api/admin/places', { name, description }, config);
+      await axios.post('https://b-path-way-to-pardesh.onrender.com/api/admin/places', { name, description }, config);
       setMessage('Places added successfully!');
       setName('');
       setDescription('');
       toast.success('Place created successfully!');
       // Optionally refetch destinations to update the list
-      const response = await axios.get('http://localhost:5000/api/admin/places', config);
+      const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/places', config);
       setDestinations(response.data);
     } catch (error) {
       setMessage('Failed to add place');
