@@ -21,11 +21,11 @@ const UserPackage = () => {
         const fetchPackageDetails = async () => {
             try {
                 // Fetch package details
-                const response = await axios.get(`http://localhost:5000/api/admin/packages/${packageId}`, config);
+                const response = await axios.get(`https://b-path-way-to-pardesh.onrender.com/api/admin/packages/${packageId}`, config);
                 setPackageDetails(response.data);
                 
                 // Fetch applied users separately
-                const usersResponse = await axios.get(`http://localhost:5000/api/admin/packages/${packageId}/applied-users`, config);
+                const usersResponse = await axios.get(`https://b-path-way-to-pardesh.onrender.com/api/admin/packages/${packageId}/applied-users`, config);
                 setAppliedUsers(usersResponse.data);
                 
                 setLoading(false);
