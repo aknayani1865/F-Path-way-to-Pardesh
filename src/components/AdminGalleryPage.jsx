@@ -20,7 +20,7 @@ const AdminGalleryPage = () => {
   useEffect(() => {
     const fetchPhotos = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/admin/gallery', config);
+        const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/gallery', config);
         setPhotos(response.data);
         setLoading(false);
       } catch (err) {
