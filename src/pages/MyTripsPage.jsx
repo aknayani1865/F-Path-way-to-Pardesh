@@ -27,7 +27,7 @@ const MyTripsPage = () => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/admin/user/${user._id}/bookings`, config);
+        const response = await axios.get(`https://b-path-way-to-pardesh.onrender.com/api/admin/user/${user._id}/bookings`, config);
         setBookings(response.data);
         setLoading(false);
       } catch (err) {
