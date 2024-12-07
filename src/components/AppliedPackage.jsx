@@ -18,7 +18,7 @@ const AppliedPackage = () => {
   useEffect(() => {
     const fetchPackages = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/admin/packages', config);
+        const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/packages', config);
         setPackages(response.data);
         setLoading(false);
       } catch (error) {
