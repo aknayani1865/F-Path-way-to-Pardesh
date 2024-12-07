@@ -56,7 +56,7 @@ const AddGallery = () => {
     }
 
     try {
-      await axios.post('http://localhost:5000/api/admin/gallery', galleryData, config);
+      await axios.post('https://b-path-way-to-pardesh.onrender.com/api/admin/gallery', galleryData, config);
       setGalleryData({
         images: '',
       });
