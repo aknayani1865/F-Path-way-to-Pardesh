@@ -11,7 +11,7 @@ const GalleryPage = () => {
   useEffect(() => {
     const fetchPhotos = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/admin/gallery');
+        const response = await axios.get('https://b-path-way-to-pardesh.onrender.com/api/admin/gallery');
         setPhotos(response.data);
         setLoading(false);
       } catch (err) {
